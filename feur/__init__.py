@@ -11,7 +11,7 @@ class FeurBot(nextcord.Client):
 
     def __init__(self, token: str, answers: str, log_level: str):
         self.__token = token
-        self.__logger = logging.getLogger("FeurBot")
+        self.__logger = logging.getLogger("Feur")
         self.__logger.setLevel(logging.getLevelName(log_level))
         handler = logging.StreamHandler(sys.stdout)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
