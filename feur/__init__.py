@@ -2,12 +2,13 @@ import json
 import logging
 import sys
 import re
+import os
 import nextcord
 
 
 class FeurBot(nextcord.Client):
 
-    def __init__(self, token: str, answers_path: str, log_level: str):
+    def __init__(self, token: str, answers: str, log_level: str):
         self.__token = token
         self.__logger = logging.getLogger("FeurBot")
         self.__logger.setLevel(logging.getLevelName(log_level))
@@ -16,6 +17,8 @@ class FeurBot(nextcord.Client):
         handler.setFormatter(formatter)
         self.__logger.addHandler(handler)
         self.__logger.info("Loading answers")
+        answers_path = answers or os.path.join(os.path.dirname(__file__), "answers.json")
+        self.__logger.info("Loading answers from %s", answers_path)
         with open(answers_path, "r") as answers_file:
             self.__answers = json.load(answers_file)
         self.__logger.info("Initializing bot...")

@@ -1,7 +1,7 @@
 import argparse
 import os
 
-from feurbot import FeurBot
+from feur import FeurBot
 
 
 def main():
@@ -18,7 +18,7 @@ def main():
                         )
     parser.add_argument("--answers",
                         type=str,
-                        default=os.environ.get("ANSWERS") or "answers.json",
+                        default=os.environ.get("ANSWERS") or None,
                         help="Path to the answers definition file. If omitted, the value of the `ANSWERS` environment variable will used."
                         )
     args = parser.parse_args()

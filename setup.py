@@ -16,9 +16,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Renaud11232/FeurBot",
     packages=setuptools.find_packages(),
+    package_data={
+        "feur": ["*.json"]
+    },
     entry_points={
         "console_scripts": [
-            "feur=feurbot.command_line:main"
+            "feur=feur.command_line:main"
         ]
     },
     install_requires=[

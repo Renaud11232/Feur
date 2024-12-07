@@ -19,11 +19,11 @@ The arguments the bot accepts can be set using a command line flag or using envi
 If the same option is set using both the command line flag and environment variable, the environment variable will be
 ignored.
 
-| CLI flag          | Environment variable | Description                                                                                                 | Required | Default        |
-|-------------------|----------------------|-------------------------------------------------------------------------------------------------------------|----------|----------------|
-| `--discord-token` | `DISCORD_TOKEN`      | The Discord bot token used to access the Discord API                                                        | Yes      |                |
-| `--log-level`     | `LOG_LEVEL`          | The log level of the bot.                                                                                   | No       | `INFO`         |
-| `--answers`       | `ANSWERS`            | The path to the answers.json file that contains regex to match messages and the answer for matched messages | No       | `answers.json` |
+| CLI flag          | Environment variable | Description                                                                                                                                                               | Required | Default     |
+|-------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------|
+| `--discord-token` | `DISCORD_TOKEN`      | The Discord bot token used to access the Discord API                                                                                                                      | Yes      |             |
+| `--log-level`     | `LOG_LEVEL`          | The log level of the bot.                                                                                                                                                 | No       | `INFO`      |
+| `--answers`       | `ANSWERS`            | The path to the answers.json file that contains regex to match messages and the answer for matched messages. If it's not specified, the builtin file will be used instead | No       | `<builtin>` |
 
 
 ### Docker CLI
