@@ -1,0 +1,8 @@
+{
+  "handlers": [
+    {
+      "matcher": "\\bquoi\\b",
+      "answer": "Feur !"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+services:
+  feur:
+    image: ghcr.io/renaud11232/feur
+    restart: unless-stopped
+    environment:
+      DISCORD_TOKEN: yourtoken
+      LOG_LEVEL: INFO
+      ANSWERS: /answers.json
