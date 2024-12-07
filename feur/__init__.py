@@ -3,6 +3,7 @@ import logging
 import sys
 import re
 import os
+import random
 import nextcord
 
 
@@ -39,7 +40,10 @@ class FeurBot(nextcord.Client):
             matcher = handler["matcher"]
             self.__logger.debug("Looking if message matches %s" % matcher)
             if re.search(matcher, message.content, re.IGNORECASE):
-                answer = handler["answer"]
+                if "secret_answer" in handler and random.randrange(1000) == 0:
+                    answer = handler["secret_answer"]
+                else:
+                    answer = handler["answer"]
                 self.__logger.debug("Handler matched, sending reply : %s" % answer)
                 await message.reply(answer)
                 break

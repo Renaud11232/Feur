@@ -2,7 +2,8 @@
   "handlers": [
     {
       "matcher": "\\bquoi\\b",
-      "answer": "Feur !"
+      "answer": "Feur !",
+      "secret_answer": "¡ ɹnǝᖵ"
     }
   ]
 }
