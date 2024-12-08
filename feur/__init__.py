@@ -39,7 +39,7 @@ class FeurBot(nextcord.Client):
         for handler in self.__answers["handlers"]:
             matcher = handler["matcher"]
             self.__logger.debug("Looking if message matches %s" % matcher)
-            if re.search(matcher, message.content, re.IGNORECASE):
+            if re.search(matcher, message.content):
                 if "secret_answer" in handler and random.randrange(1000) == 0:
                     answer = handler["secret_answer"]
                 else:
