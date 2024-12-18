@@ -1,12 +1,12 @@
 {
   "handlers": [
     {
-      "matcher": "(?i)\\bquoi\\b",
+      "matcher": "(?i)\\bq+u+o+i+\\b",
       "answer": "Feur !",
       "secret_answer": "¡ ɹnǝᖵ"
     },
     {
-      "matcher": "(?i)\\bpourquoi\\b",
+      "matcher": "(?i)\\bp+o+u+r+q+u+o+i+\\b",
       "answer": "Parce que feur !",
       "secret_answer": "¡ ɹnǝⅎ ǝnb ǝɔɹɐԀ"
     }
