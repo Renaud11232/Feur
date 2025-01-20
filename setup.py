@@ -8,7 +8,7 @@ def get_long_description():
 
 setuptools.setup(
     name="FeurBot",
-    version="0.0.2",
+    version="0.0.3",
     author="Renaud Gaspard",
     author_email="gaspardrenaud@hotmail.com",
     description="A stupid bot that gives predefined answers to messages matching regex",
