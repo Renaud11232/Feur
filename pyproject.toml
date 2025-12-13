@@ -1,0 +1,48 @@
+[build-system]
+requires = [
+    "hatchling >= 1.28.0, < 2",
+    "hatch-vcs >= 0.5.0, < 1"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "Feur"
+dependencies = [
+    "nextcord >= 3.1.1, < 4",
+    "injector >= 0.23.0, < 1"
+]
+requires-python = ">= 3.13"
+authors = [
+    {name = "Renaud Gaspard", email = "gaspardrenaud@hotmail.com"}
+]
+description = "A stupid bot that gives predefined answers to messages matching regex"
+readme = "README.md"
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
+keywords = [
+    "discord",
+    "bot",
+    "joke"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dynamic = [
+    "version"
+]
+
+[project.urls]
+homepage = "https://github.com/Renaud11232/Feur"
+source = "https://github.com/Renaud11232/Feur.git"
+download = "https://github.com/Renaud11232/Feur/archive/refs/heads/master.zip"
+issues = "https://github.com/Renaud11232/Feur/issues"
+
+[project.scripts]
+feur = "feur:main"
+
+[tool.hatch.version]
+source = "vcs"

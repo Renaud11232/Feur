@@ -1,5 +1,13 @@
-FROM python:3.12-slim
+FROM python:3.13 AS builder
 
-RUN pip install --no-cache-dir setuptools "https://github.com/Renaud11232/Feur/archive/refs/heads/master.zip"
+ADD dist/*.whl /tmp/
 
-ENTRYPOINT ["feur"]
+RUN python -m venv /app \
+    && /app/bin/pip install --no-cache-dir /tmp/*.whl
+
+
+FROM python:3.13-slim
+
+COPY --from=builder /app /app
+
+ENTRYPOINT ["/app/bin/feur"]
