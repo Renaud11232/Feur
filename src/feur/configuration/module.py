@@ -12,7 +12,9 @@ class ConfigurationModule(Module):
     @singleton
     @provider
     def provide_configuration(self) -> Configuration:
-        parser = argparse.ArgumentParser(description='Starts the FeurBot')
+        parser = argparse.ArgumentParser(
+            description="Starts a new Feur instance"
+        )
         parser.add_argument(
             "--discord-token",
             action=EnvDefault,
