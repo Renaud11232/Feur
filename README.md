@@ -63,7 +63,7 @@ docker-compose up -d
 You can install this bot by running the following command (a venv is recommended) :
 
 ```bash
-pip install "https://github.com/Renaud11232/Feur/archive/refs/heads/master.zip"
+pip install "git+https://github.com/Renaud11232/Feur.git"
 ```
 
 Once it's installed you can start it either by setting the environment variables :
