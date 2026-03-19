@@ -1,5 +1,3 @@
-import random
-
 from injector import inject, singleton
 
 import discord
@@ -19,7 +17,7 @@ class FeurBot(commands.Bot):
         intents.message_content = True
         super().__init__(
             intents=intents,
-            command_prefix="".join(random.choices("0123456789abcdef", k=64)),
+            command_prefix=[],
             help_command=None
         )
         self.__feur_cogs = [
