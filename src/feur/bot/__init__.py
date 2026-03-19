@@ -1,2 +1,2 @@
-from .feur import Feur
+from .feur import FeurBot
 from .module import BotModule

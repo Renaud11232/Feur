@@ -44,6 +44,6 @@ class ConfigurationModule(Module):
         args = parser.parse_args()
         return Configuration(
             discord_token=args.discord_token,
-            log_level=args.log_level,
+            log_level=logging.getLevelName(args.log_level),
             answers=args.answers
         )

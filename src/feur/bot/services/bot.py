@@ -1,7 +1,7 @@
 import logging
 
-import nextcord
-from nextcord.ext import commands
+import discord
+from discord.ext import commands
 
 from injector import singleton, inject, ProviderOf
 
@@ -18,11 +18,11 @@ class BotService:
         scopes = [
             "bot"
         ]
-        permissions = nextcord.Permissions.none()
+        permissions = discord.Permissions.none()
         permissions.update(
             read_messages=True
         )
-        invite_url = nextcord.utils.oauth_url(
+        invite_url = discord.utils.oauth_url(
             self.__bot_provider.get().user.id,
             scopes=scopes,
             permissions=permissions

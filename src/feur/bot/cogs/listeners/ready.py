@@ -2,7 +2,7 @@ import logging
 
 from injector import singleton, inject
 
-from nextcord.ext import commands
+from discord.ext import commands
 
 from feur.bot.services import BotService
 
@@ -14,7 +14,7 @@ class ReadyListener(commands.Cog):
     def __init__(self, bot_service: BotService):
         super().__init__()
         self.__bot_service = bot_service
-        self.__logger = logging.getLogger("feur.listeners.ready")
+        self.__logger = logging.getLogger("feur.listeners")
 
     @commands.Cog.listener()
     async def on_ready(self):

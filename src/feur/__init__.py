@@ -1,6 +1,7 @@
 from injector import Injector
 
-from feur.bot import Feur, BotModule
+from feur.app import Feur
+from feur.bot import BotModule
 from feur.configuration import ConfigurationModule
 
 

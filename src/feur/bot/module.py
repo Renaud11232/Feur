@@ -1,24 +1,11 @@
-import nextcord
-from nextcord.ext import commands
+from feur.bot import FeurBot
 
-from injector import Module, singleton, provider
+from discord.ext import commands
 
-from feur.bot.cogs import *
+from injector import Module, Binder
 
 
 class BotModule(Module):
 
-    @singleton
-    @provider
-    def provide_bot(self,
-                    ready_listener: ReadyListener,
-                    message_listener: MessageListener) -> commands.Bot:
-        intents = nextcord.Intents.default()
-        intents.messages = True
-        intents.message_content = True
-        bot =  commands.Bot(
-            intents=intents
-        )
-        bot.add_cog(ready_listener)
-        bot.add_cog(message_listener)
-        return bot
+    def configure(self, binder: Binder) -> None:
+        binder.bind(commands.Bot, to=FeurBot)

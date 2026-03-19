@@ -1,29 +1,32 @@
-import logging
-import sys
-
-from nextcord.ext import commands
+import random
 
 from injector import inject, singleton
 
-from feur.configuration import Configuration
+import discord
+from discord.ext import commands
+
+from feur.bot.cogs import *
 
 
 @singleton
-class Feur:
+class FeurBot(commands.Bot):
 
     @inject
-    def __init__(self, configuration: Configuration, bot: commands.Bot):
-        self.__configuration = configuration
-        self.__bot = bot
-        self.__init_logger("nextcord")
-        self.__init_logger("feur")
+    def __init__(self, ready_listener: ReadyListener,
+                       message_listener: MessageListener):
+        intents = discord.Intents.default()
+        intents.messages = True
+        intents.message_content = True
+        super().__init__(
+            intents=intents,
+            command_prefix="".join(random.choices("0123456789abcdef", k=64)),
+            help_command=None
+        )
+        self.__feur_cogs = [
+            ready_listener,
+            message_listener
+        ]
 
-    def __init_logger(self, name: str):
-        logger = logging.getLogger(name)
-        logger.setLevel(self.__configuration.log_level)
-        handler = logging.StreamHandler(sys.stdout)
-        handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-        logger.addHandler(handler)
-
-    def run(self):
-        self.__bot.run(self.__configuration.discord_token)
+    async def setup_hook(self) -> None:
+        for cog in self.__feur_cogs:
+            await self.add_cog(cog)
